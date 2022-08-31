@@ -32,5 +32,17 @@ namespace Escola.Api.Controllers
             }
             return Ok();
         }
+
+        [HttpGet]
+        public IActionResult ObterTodos (AlunoDTO aluno){
+            try{
+                return Ok(_alunoServico.ObterTodos());
+            }
+            catch{
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        
     }
 }
