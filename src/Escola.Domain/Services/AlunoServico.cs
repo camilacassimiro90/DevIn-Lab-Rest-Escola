@@ -6,6 +6,7 @@ using Escola.Domain.DTO;
 using Escola.Domain.Models;
 using Escola.Domain.Interfaces.Repositories;
 using Escola.Domain.Interfaces.Services;
+using Escola.Domain.Exceptions;
 
 namespace Escola.Domain.Services
 {
@@ -16,6 +17,21 @@ namespace Escola.Domain.Services
         {
             _alunoRepositorio = alunoRepositorio;
         }
+
+        public void Atualizar(AlunoDTO aluno)
+        {
+            var alunoDb = _alunoRepositorio.ObterPorId(aluno.Id);
+            alunoDb.Update(aluno);
+            //alunoDb.Update(new Aluno(aluno));
+            _alunoRepositorio.Atualizar(alunoDb);
+
+        }
+        public void Excluir(Guid id)
+        {
+            var aluno = _alunoRepositorio.ObterPorId(id);
+            _alunoRepositorio.Excluir(aluno);
+        }
+
         public void Excluir(AlunoDTO aluno)
         {
             throw new NotImplementedException();
@@ -24,18 +40,21 @@ namespace Escola.Domain.Services
         public void Inserir(AlunoDTO aluno)
         {
             //ToDo: Validar se já consta matricula.
+            if (_alunoRepositorio.ExisteMatricula(aluno.Matricula))
+                throw new DuplicadoException("Matricula já existente");
 
             _alunoRepositorio.Inserir(new Aluno(aluno));
         }
 
         public AlunoDTO ObterPorId(Guid id)
         {
-            throw new NotImplementedException();
+            return new AlunoDTO(_alunoRepositorio.ObterPorId(id));
         }
 
         public IList<AlunoDTO> ObterTodos()
         {
-            throw new NotImplementedException();
+            return _alunoRepositorio.ObterTodos()
+                            .Select(x => new AlunoDTO(x)).ToList();
         }
     }
 }

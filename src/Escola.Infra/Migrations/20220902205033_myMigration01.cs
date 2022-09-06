@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Escola.Infra.Migrations
 {
-    public partial class Create : Migration
+    public partial class myMigration01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,15 +15,21 @@ namespace Escola.Infra.Migrations
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Matricula = table.Column<int>(type: "int", nullable: false),
-                    NOME = table.Column<string>(type: "VARCHAR(80)", maxLength: 80, nullable: false),
-                    SOBRENOME = table.Column<string>(type: "VARCHAR(150)", maxLength: 150, nullable: false),
-                    EMAIL = table.Column<string>(type: "VARCHAR(200)", maxLength: 200, nullable: false),
+                    NOME = table.Column<string>(type: "VARCHAR(80)", maxLength: 80, nullable: true),
+                    SOBRENOME = table.Column<string>(type: "VARCHAR(150)", maxLength: 150, nullable: true),
+                    EMAIL = table.Column<string>(type: "VARCHAR(200)", maxLength: 200, nullable: true),
                     DATA_NASCIMENTO = table.Column<DateTime>(type: "DATE", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AlunoID", x => x.ID);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ALUNO_Matricula",
+                table: "ALUNO",
+                column: "Matricula",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
