@@ -34,7 +34,17 @@ namespace Escola.Domain.Services
 
         public void Excluir(AlunoDTO aluno)
         {
-            throw new NotImplementedException();
+            var alunoDb = _alunoRepositorio.ObterPorId(aluno.Id);
+            alunoDb.Update(aluno);
+            //alunoDb.Update(new Aluno(aluno));
+            _alunoRepositorio.Atualizar(alunoDb);
+
+        }
+
+        public void Excluir(Guid id)
+        {
+            var aluno = _alunoRepositorio.ObterPorId(id);
+            _alunoRepositorio.Excluir(aluno);
         }
 
         public void Inserir(AlunoDTO aluno)
