@@ -11,7 +11,8 @@ namespace Escola.Domain.Interfaces.Services
         IList<AlunoDTO> ObterTodos();
         AlunoDTO ObterPorId(Guid id);
         void Inserir(AlunoDTO aluno);
-        void Excluir (Guid id);
-        void Atualizar (AlunoDTO aluno);
+        void Excluir(AlunoDTO aluno);
+        void Atualizar(AlunoDTO aluno);
+        void Excluir(Guid id);
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Escola.Domain.Models;
 using Escola.Infra.DataBase.Mappings;
+using Microsoft.Extensions.Configuration;
 
 namespace Escola.Infra.DataBase
 {
@@ -13,11 +14,20 @@ namespace Escola.Infra.DataBase
         public DbSet<Aluno> Alunos {get; set;}
         
         protected override void OnConfiguring(DbContextOptionsBuilder options){
-            options.UseSqlServer("Password=YourStrong@Passw0rd;Persist Security Info=True;User ID=sa;Initial Catalog=EscolaDB;Data Source=tcp:localhost,1433");
+
+            // options.UseSqlServer(_configuration.GetConnectionString("DevIn-Lab-Rest-Escola"));
+           
+            options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=BD_DevIn-Lab-Rest2-Escola;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
             modelBuilder.ApplyConfiguration(new AlunoMap());
+        }
+
+        private readonly IConfiguration _configuration;
+        public EscolaDBContexto(IConfiguration configuration)
+        {
+            _configuration = configuration;
         }
     }
 }

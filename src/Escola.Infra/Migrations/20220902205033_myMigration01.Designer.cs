@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escola.Infra.Migrations
 {
     [DbContext(typeof(EscolaDBContexto))]
-    [Migration("20220830010030_Create")]
-    partial class Create
+    [Migration("20220902205033_myMigration01")]
+    partial class myMigration01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,7 +36,6 @@ namespace Escola.Infra.Migrations
                         .HasColumnName("DATA_NASCIMENTO");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("VARCHAR(200)")
                         .HasColumnName("EMAIL");
@@ -46,19 +45,20 @@ namespace Escola.Infra.Migrations
                         .HasColumnName("Matricula");
 
                     b.Property<string>("Nome")
-                        .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("VARCHAR(80)")
                         .HasColumnName("NOME");
 
                     b.Property<string>("Sobrenome")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("VARCHAR(150)")
                         .HasColumnName("SOBRENOME");
 
                     b.HasKey("Id")
                         .HasName("PK_AlunoID");
+
+                    b.HasIndex("Matricula")
+                        .IsUnique();
 
                     b.ToTable("ALUNO", (string)null);
                 });
