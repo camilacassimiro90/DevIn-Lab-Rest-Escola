@@ -43,12 +43,8 @@ namespace Escola.Api.Config
             var response = new ErrorDTO(message);
 
             context.Response.StatusCode = (int) status;
-<<<<<<< HEAD
             
             return context.Response.WriteAsJsonAsync(response);
-=======
-            return context.Response.WriteAsync(JsonConvert.SerializeObject(response));
->>>>>>> 521e46ed5462198c0736878b2a7bfc10b9416376
         }
     }
 }
