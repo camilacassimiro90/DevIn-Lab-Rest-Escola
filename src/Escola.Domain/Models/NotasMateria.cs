@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace Escola.Domain.Models
 {
-    public class NotasMateria
-    {
-        public Guid Id { get; set; } = new Guid();
-        public Guid BoletimId { get; set; }
-        public Guid MateriaId { get; set; }
-        public int Nota { get; set; }
-    }
+  public class NotasMateria
+  {
+    public Guid Id { get; set; } = new Guid();
+    public Guid BoletimId { get; set; }
+    public Guid MateriaId { get; set; }
+    public double Nota { get; set; }
+    public virtual Materia Materia { get; set; }
+    public virtual Boletim Boletim { get; set; }
+
+  }
 }
+
+
+
+
+
+
+
