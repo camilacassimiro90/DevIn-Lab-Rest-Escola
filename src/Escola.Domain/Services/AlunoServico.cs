@@ -41,11 +41,11 @@ namespace Escola.Domain.Services
 
         }
 
-        public void Excluir(Guid id)
-        {
-            var aluno = _alunoRepositorio.ObterPorId(id);
-            _alunoRepositorio.Excluir(aluno);
-        }
+        // public void Excluir(Guid id)
+        // {
+        //     var aluno = _alunoRepositorio.ObterPorId(id);
+        //     _alunoRepositorio.Excluir(aluno);
+        // }
 
         public void Inserir(AlunoDTO aluno)
         {
