@@ -8,9 +8,9 @@ namespace Escola.Domain.DTO
 {
     public class MateriaDTO
     {
-         public Guid Id { get; set; }
+        public Guid Id { get; set; }
         public string Nome { get; set; }
-         public MateriaDTO()
+        public MateriaDTO()
         {
             
         }
