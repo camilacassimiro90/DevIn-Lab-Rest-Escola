@@ -48,5 +48,14 @@ namespace Escola.Api.Controllers
       _materiaServico.Excluir(materiaId);
       return Ok();
     }
+
+    [HttpPut("{materiaId}")]
+
+    public IActionResult Put([FromRoute] Guid materiaId, [FromBody] MateriaDTO materia)
+    {
+      materia.Id = materiaId;
+      _materiaServico.Atualizar(materia);
+      return Ok();
+    }
   }
 }
