@@ -21,6 +21,13 @@ namespace Escola.Api.Controllers
       _materiaServico = materiaServico;
     }
 
+    [HttpPost]
+    public IActionResult Post([FromBody] MateriaDTO materia)
+    {
+      _materiaServico.Inserir(materia);
+      return Ok();
+    }
+
     [HttpGet]
     public IActionResult ObterTodos([FromQuery] string nome)
     {
