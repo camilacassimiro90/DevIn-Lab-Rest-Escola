@@ -41,5 +41,12 @@ namespace Escola.Api.Controllers
     {
       return Ok(_materiaServico.ObterPorId(materiaId));
     }
+
+    [HttpDelete("{materiaId}")]
+    public IActionResult Delete([FromRoute] int materiaId)
+    {
+      _materiaServico.Excluir(materiaId);
+      return Ok();
+    }
   }
 }
