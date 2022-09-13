@@ -9,7 +9,7 @@ namespace Escola.Domain.Interfaces.Repositories
     Boletim ObterPorId(int id);
     void Inserir(Boletim boletim);
     void Atualizar(Boletim boletim);
-    void Excluir(Boletim boletim);
+    void ExcluirMateria(Boletim boletim, NotasMateria materia);
 
   }
 }

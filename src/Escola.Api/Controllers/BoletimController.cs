@@ -75,11 +75,12 @@ namespace Escola.Api.Controllers
       }
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete("{boletimId}/materia")]
     public IActionResult Excluir(
-      [FromRoute] int id)
+      [FromRoute] int boletimId,
+      int materiaId)
     {
-      _boletimServico.Excluir(id);
+      _boletimServico.Excluir(boletimId, materiaId);
       return StatusCode(StatusCodes.Status204NoContent);
     }
 

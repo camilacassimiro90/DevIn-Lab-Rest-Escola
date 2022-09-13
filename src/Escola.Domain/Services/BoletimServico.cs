@@ -1,12 +1,8 @@
 using Escola.Domain.DTO;
+using Escola.Domain.Exceptions;
 using Escola.Domain.Interfaces.Repositories;
 using Escola.Domain.Interfaces.Services;
 using Escola.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Escola.Domain.Services
 {
@@ -46,16 +42,17 @@ namespace Escola.Domain.Services
       _boletimRepositorio.Atualizar(boletimDb);
 
     }
-    public void Excluir(int boletimId)
+    public void ExcluirMateria(int boletimId, int materiaId)
     {
       var boletimDb = _boletimRepositorio.ObterPorId(boletimId);
       if (boletimDb == null)
       {
-        throw new Exception("Boletim não existe");
+        throw new Exception("Matéria não existe");
       }
 
-      _boletimRepositorio.Excluir(boletimDb);
+      _boletimRepositorio.ExcluirMateria(boletimDb, materia);
     }
 
   }
+
 }
