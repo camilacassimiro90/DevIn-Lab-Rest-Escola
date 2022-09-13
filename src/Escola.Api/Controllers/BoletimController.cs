@@ -59,6 +59,22 @@ namespace Escola.Api.Controllers
       return StatusCode(StatusCodes.Status201Created);
     }
 
+    [HttpPut("{id}")]
+    public IActionResult Atualizar(
+      [FromRoute] int id,
+      [FromBody] BoletimDTO boletim)
+    {
+      try
+      {
+        _boletimServico.Atualizar(boletim, id);
+        return StatusCode(StatusCodes.Status201Created);
+      }
+      catch
+      {
+        return StatusCode(StatusCodes.Status500InternalServerError);
+      }
+    }
+
 
 
   }
