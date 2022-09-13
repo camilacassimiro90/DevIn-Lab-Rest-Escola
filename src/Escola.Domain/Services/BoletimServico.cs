@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Escola.Domain.Services
 {
-  public class BoletimServico : Api.Controllers.IBoletimServico
+  public class BoletimServico : IBoletimServico
   {
     private readonly IBoletimRepositorio _boletimRepositorio;
 
@@ -45,6 +45,16 @@ namespace Escola.Domain.Services
       boletimDb.Update(boletim);
       _boletimRepositorio.Atualizar(boletimDb);
 
+    }
+    public void Excluir(int boletimId)
+    {
+      var boletimDb = _boletimRepositorio.ObterPorId(boletimId);
+      if (boletimDb == null)
+      {
+        throw new Exception("Boletim não existe");
+      }
+
+      _boletimRepositorio.Excluir(boletimDb);
     }
 
   }

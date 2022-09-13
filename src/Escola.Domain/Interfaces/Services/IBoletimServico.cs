@@ -9,6 +9,7 @@ namespace Escola.Api.Controllers
     IList<BoletimDTO> ObterPorIdAluno(Guid id);
     void Inserir(BoletimDTO boletim);
     void Atualizar(BoletimDTO boletim, int id);
+    void Excluir(int id);
 
   }
 }

@@ -75,6 +75,14 @@ namespace Escola.Api.Controllers
       }
     }
 
+    [HttpDelete("{id}")]
+    public IActionResult Excluir(
+      [FromRoute] int id)
+    {
+      _boletimServico.Excluir(id);
+      return StatusCode(StatusCodes.Status204NoContent);
+    }
+
 
 
   }
