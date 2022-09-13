@@ -1,5 +1,11 @@
-using Escola.Domain.Models;
 using Escola.Domain.DTO;
+using Escola.Domain.Interfaces.Repositories;
+using Escola.Domain.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Escola.Api.Controllers
 {
