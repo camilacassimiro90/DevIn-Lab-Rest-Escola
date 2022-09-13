@@ -36,6 +36,7 @@ namespace Escola.Api.Controllers
         return StatusCode(StatusCodes.Status500InternalServerError);
       }
     }
+
     [HttpGet("~/api/alunos/{idaluno}/boletins")]
     public IActionResult ObterPorIdAluno(
       [FromRoute] Guid idAluno)
@@ -48,6 +49,14 @@ namespace Escola.Api.Controllers
       {
         return StatusCode(StatusCodes.Status500InternalServerError);
       }
+    }
+
+    [HttpPost]
+    public IActionResult Inserir(
+      [FromBody] BoletimDTO boletim)
+    {
+      _boletimServico.Inserir(boletim);
+      return StatusCode(StatusCodes.Status201Created);
     }
 
 
