@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Escola.Domain.DTO;
+using Escola.Domain.Models;
 
-namespace Escola.Domain.Interfaces.Services
-{
+namespace Escola.Domain.Interfaces.Services;
+
     public interface IMateriaServico
     {
         IList<MateriaDTO> ObterTodos();
@@ -15,4 +12,3 @@ namespace Escola.Domain.Interfaces.Services
         void Excluir (int id);
         void Atualizar (MateriaDTO materia);
     }
-}

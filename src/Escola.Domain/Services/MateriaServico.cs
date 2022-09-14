@@ -1,13 +1,9 @@
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Escola.Domain.DTO;
-using Escola.Domain.Interfaces.Services;
-using Escola.Domain.Interfaces.Repositories;
-using Escola.Domain.Models;
 using Escola.Domain.Exceptions;
+using Escola.Domain.Interfaces.Repositories;
+using Escola.Domain.Interfaces.Services;
+using Escola.Domain.Models;
 
 
 namespace Escola.Domain.Services
@@ -20,8 +16,13 @@ namespace Escola.Domain.Services
       _materiaRepositorio = materiaRepositorio;
     }
 
-    //VALIDAR SE JÁ EXISTE A MATÉRIA, CASO SIM, CONCLUIR A EXCLUSÃO
-    public void Excluir(int id)
+        public void Atualizar(MateriaDTO materia)
+        {
+            throw new NotImplementedException();
+        }
+
+        //VALIDAR SE JÁ EXISTE A MATÉRIA, CASO SIM, CONCLUIR A EXCLUSÃO
+        public void Excluir(int id)
     {
       var materia = _materiaRepositorio.ObterPorId(id);
       _materiaRepositorio.Excluir(materia);
