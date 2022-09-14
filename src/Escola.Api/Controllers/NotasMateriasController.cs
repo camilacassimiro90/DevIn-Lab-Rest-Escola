@@ -44,7 +44,14 @@ namespace Escola.Api.Controllers
       {
         return StatusCode(StatusCodes.Status500InternalServerError);
       }
+    }
 
+    [HttpPost]
+    public IActionResult InserirNotas(
+         [FromBody] NotasMateriaDTO notasMateria)
+    {
+      _notasMateriaServico.InserirNotas(notasMateria);
+      return StatusCode(StatusCodes.Status201Created);
     }
 
   }

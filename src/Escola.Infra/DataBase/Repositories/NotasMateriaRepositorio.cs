@@ -26,5 +26,11 @@ namespace Escola.Infra.DataBase.Repositories
       return _contexto.NotasMaterias.Where(n => n.BoletimId == boletimId).ToList();
     }
 
+    public void InserirNotas(NotasMateria notasMateria)
+    {
+      _contexto.NotasMaterias.Add(notasMateria);
+      _contexto.SaveChanges();
+    }
+
   }
 }
