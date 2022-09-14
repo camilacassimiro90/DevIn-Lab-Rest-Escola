@@ -15,6 +15,8 @@ namespace Escola.Domain.Interfaces.Repositories
     public NotasMateria ObterPorId(int id);
     public void Inserir(NotasMateria notasMateria);
     public void Atualizar(NotasMateria notasMateria);
+    public bool NotasExiste(int id);
+    void ExcluirNotas(int id);
 
   }
 }

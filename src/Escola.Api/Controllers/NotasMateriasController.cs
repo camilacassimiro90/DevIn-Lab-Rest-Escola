@@ -32,7 +32,7 @@ namespace Escola.Api.Controllers
       }
     }
 
-    [HttpGet("~/api/alunos/{idAluno}/boletins/{idBoletim}/NotasMateria")]//~anular controller base
+    [HttpGet("~/api/alunos/{idAluno}/boletins/{idBoletim}/NotasMateria")]
     public IActionResult ObterPorBoletim(
         [FromRoute] int boletimId)
     {
@@ -64,6 +64,12 @@ namespace Escola.Api.Controllers
       return Ok();
     }
 
+    [HttpDelete("{id}")]
+    public IActionResult ExcluirNotas(
+          [FromRoute] int id)
+    {
+      _notasMateriaServico.ExcluirNotas(id);
+      return StatusCode(StatusCodes.Status200OK);
+    }
   }
-
 }

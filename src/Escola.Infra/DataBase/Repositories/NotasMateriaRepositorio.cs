@@ -38,5 +38,16 @@ namespace Escola.Infra.DataBase.Repositories
       _contexto.SaveChanges();
     }
 
+    public bool NotasExiste(int id)
+    {
+      return _contexto.NotasMaterias.Any(ne => ne.Id == id);
+    }
+
+    public void ExcluirNotas(NotasMateria notas)
+    {
+      _contexto.NotasMaterias.Remove(notas);
+      _contexto.SaveChanges();
+    }
+
   }
 }
