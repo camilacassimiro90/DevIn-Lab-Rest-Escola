@@ -80,7 +80,7 @@ namespace Escola.Api.Controllers
       [FromRoute] int boletimId,
       int materiaId)
     {
-      _boletimServico.Excluir(boletimId, materiaId);
+      _boletimServico.ExcluirMateria(boletimId, materiaId);
       return StatusCode(StatusCodes.Status204NoContent);
     }
 
