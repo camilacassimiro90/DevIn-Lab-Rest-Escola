@@ -54,6 +54,16 @@ namespace Escola.Api.Controllers
       return StatusCode(StatusCodes.Status201Created);
     }
 
+    [HttpPut("{notasMateriaId}")]
+    public IActionResult AtualizarNotas(
+          [FromRoute] int notasMateriaId,
+          [FromBody] NotasMateriaDTO notasMateria)
+    {
+      notasMateria.Id = notasMateriaId;
+      _notasMateriaServico.AtualizarNotas(notasMateria);
+      return Ok();
+    }
+
   }
 
 }

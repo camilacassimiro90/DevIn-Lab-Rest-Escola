@@ -32,5 +32,11 @@ namespace Escola.Infra.DataBase.Repositories
       _contexto.SaveChanges();
     }
 
+    public void AtualizarNotas(NotasMateria notas)
+    {
+      _contexto.NotasMaterias.Update(notas);
+      _contexto.SaveChanges();
+    }
+
   }
 }
