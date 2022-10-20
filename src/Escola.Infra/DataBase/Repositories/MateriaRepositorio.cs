@@ -17,11 +17,35 @@ namespace Escola.Infra.DataBase.Repositories
       _contexto = contexto;
     }
 
-    public void Inserir(Materia materia)
+        public void Atualizar(Materia materia)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Excluir(Materia materia)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Inserir(Materia materia)
     {
       _contexto.Materias.Add(materia);
       _contexto.SaveChanges();
     }
 
-  }
+        public Materia ObterPorId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Materia> ObterPorNome(string nome)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Materia> ObterTodos()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

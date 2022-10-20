@@ -1,11 +1,5 @@
 using Escola.Domain.Interfaces.Repositories;
 using Escola.Domain.Models;
-using Escola.Infra.Migrations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Escola.Infra.DataBase.Repositories
 {
@@ -29,7 +23,12 @@ namespace Escola.Infra.DataBase.Repositories
       _contexto.SaveChanges();
     }
 
-    public void Inserir(Boletim boletim)
+        public void ExcluirMateria(Boletim boletim, NotasMateria materia)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Inserir(Boletim boletim)
     {
       _contexto.Boletins.Add(boletim);
       _contexto.SaveChanges();
